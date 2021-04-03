@@ -1,0 +1,5 @@
+baseURL = "https://sckn.dev/"
+languageCode = "en-us"
+title = "Seçkin ALAN"
+theme="archie"
+copyright = "Copyleft | Seçkin ALAN"
