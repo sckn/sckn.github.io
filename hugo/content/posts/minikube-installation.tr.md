@@ -4,6 +4,7 @@ date: 2021-04-04T17:38:57+03:00
 draft: false
 tags: [kubectl,"minikube"]
 categories: [Kubernetes]
+summary: "Kişisel bilgisayarımıza minikube kurulumu"
 ---
 Merhaba,
 

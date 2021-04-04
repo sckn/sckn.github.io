@@ -26,14 +26,5 @@
       <description>Hello World!</description>
     </item>
     
-    <item>
-      <title>Not Found / Aradığınız Sayfa Yok</title>
-      <link>https://sckn.dev/not-found/</link>
-      <pubDate>Sun, 04 Apr 2021 02:38:57 +0300</pubDate>
-      
-      <guid>https://sckn.dev/not-found/</guid>
-      <description>Not Found / Aradığınız Sayfa Yok</description>
-    </item>
-    
   </channel>
 </rss>
