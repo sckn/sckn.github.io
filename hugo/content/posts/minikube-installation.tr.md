@@ -10,11 +10,11 @@ Merhaba,
 
 Bu yazıda sizlere kişisel çalışma ortamınıza minikube kurulumunu ardından üzerinde örnekler yapmayı anlatmya çalışıcam.
 <!--more--> 
-[Orginal Referans Dökümanı](https://minikube.sigs.k8s.io/docs/start/)
+[Orjinal Referans Dokümanı](https://minikube.sigs.k8s.io/docs/start/)
 ________
 Konu Başlıkları
 1. [Kurulum](#kurulum)
-2. [Minikube Cluter ile Çalışmak](#minikube-cluster-ile-çalışmak)
+2. [Minikube Cluster ile Çalışmak](#minikube-cluster-ile-çalışmak)
 3. [Örnek](#örnek)
 
 Kurulum
