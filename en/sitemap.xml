@@ -28,6 +28,9 @@
                 href="https://sckn.dev/posts/hello-world/"
                 />
   </url><url>
+    <loc>https://sckn.dev/not-found/</loc>
+    <lastmod>2021-04-04T02:38:57+03:00</lastmod>
+  </url><url>
     <loc>https://sckn.dev/posts/</loc>
     <lastmod>2021-04-04T02:38:57+03:00</lastmod>
     <xhtml:link
