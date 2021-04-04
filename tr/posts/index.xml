@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft | Seçkin ALAN</copyright>
-    <lastBuildDate>Sun, 04 Apr 2021 17:38:57 +0300</lastBuildDate><atom:link href="https://sckn.dev/tr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Apr 2021 00:41:41 +0300</lastBuildDate><atom:link href="https://sckn.dev/tr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sertifikalı Kubernetes Uygulama Geliştirici Egzersizleri</title>
+      <link>https://sckn.dev/tr/posts/ckad-exercises/</link>
+      <pubDate>Mon, 05 Apr 2021 00:41:41 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/posts/ckad-exercises/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://sckn.dev/posts/ckad-exercises/&#34;&gt;English Version&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Merhabalar,&lt;/p&gt;
+&lt;p&gt;Hedefim Serfitikalı Kubernetes Yöneticis + Serfitikalı Kubernetes Uygulama Geliştiricisi olmak. Bu benim egzersiz dökümanım olacak.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Minikube Kurulumu</title>
       <link>https://sckn.dev/tr/posts/minikube-installation/</link>

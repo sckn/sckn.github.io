@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Seçkin ALAN</title>
-    <link>https://sckn.dev/posts/</link>
-    <description>Recent content in Posts on Seçkin ALAN</description>
+    <title>kubernetes on Seçkin ALAN</title>
+    <link>https://sckn.dev/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Seçkin ALAN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyleft | Seçkin ALAN</copyright>
-    <lastBuildDate>Mon, 05 Apr 2021 00:41:41 +0300</lastBuildDate><atom:link href="https://sckn.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Apr 2021 00:41:41 +0300</lastBuildDate><atom:link href="https://sckn.dev/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Certified Kubernetes Application Developer Exercises</title>
       <link>https://sckn.dev/posts/ckad-exercises/</link>
@@ -19,15 +19,6 @@
 &lt;p&gt;Hi,&lt;/p&gt;
 &lt;p&gt;My goal is to become Certified Kubernetes Admin + Certified Kubernetes Application Developer.
 This is my exercises document.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://sckn.dev/posts/hello-world/</link>
-      <pubDate>Sun, 04 Apr 2021 02:38:57 +0300</pubDate>
-      
-      <guid>https://sckn.dev/posts/hello-world/</guid>
-      <description>Hello World!</description>
     </item>
     
   </channel>
