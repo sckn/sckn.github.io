@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seçkin ALAN</title>
+    <link>https://sckn.dev/tr/</link>
+    <description>Recent content on Seçkin ALAN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyleft | Seçkin ALAN</copyright>
+    <lastBuildDate>Sun, 04 Apr 2021 02:38:57 +0300</lastBuildDate><atom:link href="https://sckn.dev/tr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hakkımda</title>
+      <link>https://sckn.dev/tr/about/</link>
+      <pubDate>Sun, 04 Apr 2021 02:38:57 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/about/</guid>
+      <description>Merhaba,</description>
+    </item>
+    
+    <item>
+      <title>Merhaba Dünya</title>
+      <link>https://sckn.dev/tr/posts/hello-world/</link>
+      <pubDate>Sun, 04 Apr 2021 02:38:57 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/posts/hello-world/</guid>
+      <description>Merhaba Dünya!</description>
+    </item>
+    
+  </channel>
+</rss>
