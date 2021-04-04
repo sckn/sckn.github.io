@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Minikube Kurulumu - Seçkin ALAN</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Minikube Kurulumu" />
+<meta property="og:description" content="Merhaba,
+Bu yazıda sizlere kişisel çalışma ortamınıza minikube kurulumunu ardından üzerinde örnekler yapmayı anlatmya çalışıcam." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sckn.dev/tr/posts/minikube-installation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-04T17:38:57&#43;03:00" />
+<meta property="article:modified_time" content="2021-04-04T17:38:57&#43;03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Minikube Kurulumu"/>
+<meta name="twitter:description" content="Merhaba,
+Bu yazıda sizlere kişisel çalışma ortamınıza minikube kurulumunu ardından üzerinde örnekler yapmayı anlatmya çalışıcam."/>
+<script src="https://sckn.dev/js/feather.min.js"></script>
+	
+	<link href="https://sckn.dev/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://sckn.dev/css/main.css" />
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://sckn.dev/">Seçkin ALAN</a>
+	</div>
+	<nav>
+		
+		<a href="/tr">Ana Sayfa</a>
+		
+		<a href="/tr/about">Hakkımda</a>
+		
+		<a href="/tr/posts">Tüm İçerikler</a>
+		
+|
+
+<a style="border-bottom:3px solid #119a15 !important" href="https://sckn.dev/">EN</a>
+
+<a style="border-bottom:3px solid #119a15 !important" href="https://sckn.dev/tr/">TR</a>
+
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Minikube Kurulumu</h1>
+			<div class="meta">Posted on Apr 4, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<p>Merhaba,</p>
+<p>Bu yazıda sizlere kişisel çalışma ortamınıza minikube kurulumunu ardından üzerinde örnekler yapmayı anlatmya çalışıcam.</p>
+<p><a href="https://minikube.sigs.k8s.io/docs/start/">Orginal Referans Dökümanı</a></p>
+<hr>
+<p>Konu Başlıkları</p>
+<ol>
+<li><a href="#kurulum">Kurulum</a></li>
+<li><a href="#minikube-cluster-ile-%C3%A7al%C4%B1%C5%9Fmak">Minikube Cluter ile Çalışmak</a></li>
+<li><a href="#%C3%B6rnek">Örnek</a></li>
+</ol>
+<h1 id="kurulum">Kurulum</h1>
+<p>Mac</p>
+<pre><code>brew install minikube
+</code></pre><p>Linux Sistemler</p>
+<pre><code>curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+</code></pre><p>Windows</p>
+<pre><code>choco install minikube
+</code></pre><p>Kurulum işlemini tamamladıktan sonra terminal emülator vasıtası ile aşağıdaki komut çalıştırılır.</p>
+<pre><code>seckin@mac &gt; minikube start
+😄  minikube v1.18.1 on Darwin 11.0.1
+✨  Automatically selected the docker driver. Other choices: hyperkit, virtualbox, ssh
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+💾  Downloading Kubernetes v1.20.2 preload ...
+    &gt; preloaded-images-k8s-v9-v1....: 491.22 MiB / 491.22 MiB  100.00% 4.19 MiB
+🔥  Creating docker container (CPUs=2, Memory=1990MB) ...
+🐳  Preparing Kubernetes v1.20.2 on Docker 20.10.3 ...
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v4
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use &quot;minikube&quot; cluster and &quot;default&quot; namespace by default
+</code></pre><p>Çıktısında yukarıdaki gibi Done yazısını gördüğümüzde sorunsuz bir şekilde ayağa kalkmış demektir.</p>
+<pre><code>seckin@mac &gt; kubectl get nodes
+NAME       STATUS   ROLES                  AGE     VERSION
+minikube   Ready    control-plane,master   2m23s   v1.20.2
+</code></pre><p>kubectl ile çalışma ortamımızı kontrol edebilirsiniz.</p>
+<h1 id="minikube-cluster-ile-çalışmak">Minikube Cluster ile Çalışmak</h1>
+<p>Hali hazırda kurulu olan sistemimizin podlarına erişmek için aşağıdaki komutu çalıştırmalıyız.</p>
+<pre><code>seckin@mac &gt; kubectl get pods -A
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+kube-system   coredns-74ff55c5b-rs9j6            1/1     Running   0          22m
+kube-system   etcd-minikube                      1/1     Running   0          22m
+kube-system   kube-apiserver-minikube            1/1     Running   0          22m
+kube-system   kube-controller-manager-minikube   1/1     Running   0          22m
+kube-system   kube-proxy-c68qh                   1/1     Running   0          22m
+kube-system   kube-scheduler-minikube            1/1     Running   0          22m
+kube-system   storage-provisioner                1/1     Running   0          22m
+</code></pre><p>Gördüğünüz gibi minikube çalışmak için ihtiyaç duyduğu etcd,coredns, proxy, scheduler ve storage gibi servisleri ayağa kaldırmış.</p>
+<p>Uygulamamızın Dashboard&rsquo;una erişmek için aşağıdaki komutu çalıştırmamzı yeterlidir.</p>
+<pre><code>minikube dashboard
+</code></pre><h1 id="örnek">Örnek</h1>
+<p>Bir örnek uygulama deploy edip yazımızı sonlandıralım.</p>
+<pre><code>seckin@mac &gt; kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
+deployment.apps/hello-minikube created
+seckin@mac &gt; kubectl expose deployment hello-minikube --type=NodePort --port=8080
+service/hello-minikube exposed
+seckin@mac &gt; sleep 40 # 30 40 sn kadar beklememiz lazım 
+
+seckin@mac &gt; kubectl get services hello-minikube
+
+NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+hello-minikube   NodePort   10.96.185.61   &lt;none&gt;        8080:31059/TCP   12s
+
+seckin@mac &gt; kubectl port-forward service/hello-minikube 7080:8080
+
+Forwarding from 127.0.0.1:7080 -&gt; 8080
+Forwarding from [::1]:7080 -&gt; 8080
+Handling connection for 7080
+Handling connection for 7080
+</code></pre><p>Yukarıdaki adımları uygulayarak <a href="http://localhost:7080/">http://localhost:7080/</a> adresinden uygulamamıza erişebilirsiniz.</p>
+<p>Görüşmek üzere.</p>
+<p>Seçkin.</p>
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tr/tags/kubectl">kubectl</a></li>
+					
+					<li><a href="/tr/tags/minikube">minikube</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/sckn" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/scknorg/" title="Twitter"><i data-feather="twitter"></i></a>|<a class="soc" href="https://www.linkedin.com/in/sckna/" title="Linkedin"><i data-feather="linkedin"></i></a>|⚡️
+	2021  Copyleft | Seçkin ALAN |  <a target="_blank" href="https://github.com/athul/archie">Archie Theme</a> | Built with <a target="_blank" href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>

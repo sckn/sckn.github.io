@@ -2,6 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sckn.dev/tr/tags/kubectl/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+  </url><url>
+    <loc>https://sckn.dev/tr/tags/minikube/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+  </url><url>
+    <loc>https://sckn.dev/tr/posts/minikube-installation/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+  </url><url>
+    <loc>https://sckn.dev/tr/posts/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sckn.dev/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://sckn.dev/tr/posts/"
+                />
+  </url><url>
+    <loc>https://sckn.dev/tr/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sckn.dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://sckn.dev/tr/"
+                />
+  </url><url>
+    <loc>https://sckn.dev/tr/tags/</loc>
+    <lastmod>2021-04-04T17:38:57+03:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sckn.dev/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="https://sckn.dev/tr/tags/"
+                />
+  </url><url>
     <loc>https://sckn.dev/tr/about/</loc>
     <lastmod>2021-04-04T02:38:57+03:00</lastmod>
     <xhtml:link
@@ -26,56 +74,6 @@
                 rel="alternate"
                 hreflang="tr"
                 href="https://sckn.dev/tr/posts/hello-world/"
-                />
-  </url><url>
-    <loc>https://sckn.dev/tr/posts/</loc>
-    <lastmod>2021-04-04T02:38:57+03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sckn.dev/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://sckn.dev/tr/posts/"
-                />
-  </url><url>
-    <loc>https://sckn.dev/tr/</loc>
-    <lastmod>2021-04-04T02:38:57+03:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sckn.dev/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://sckn.dev/tr/"
-                />
-  </url><url>
-    <loc>https://sckn.dev/tr/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sckn.dev/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://sckn.dev/tr/categories/"
-                />
-  </url><url>
-    <loc>https://sckn.dev/tr/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sckn.dev/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://sckn.dev/tr/tags/"
                 />
   </url>
 </urlset>

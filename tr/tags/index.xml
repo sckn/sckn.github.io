@@ -6,6 +6,25 @@
     <description>Recent content in Tags on Seçkin ALAN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyleft | Seçkin ALAN</copyright><atom:link href="https://sckn.dev/tr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyleft | Seçkin ALAN</copyright>
+    <lastBuildDate>Sun, 04 Apr 2021 17:38:57 +0300</lastBuildDate><atom:link href="https://sckn.dev/tr/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubectl</title>
+      <link>https://sckn.dev/tr/tags/kubectl/</link>
+      <pubDate>Sun, 04 Apr 2021 17:38:57 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/tags/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minikube</title>
+      <link>https://sckn.dev/tr/tags/minikube/</link>
+      <pubDate>Sun, 04 Apr 2021 17:38:57 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/tags/minikube/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

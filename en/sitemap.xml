@@ -54,18 +54,6 @@
                 href="https://sckn.dev/"
                 />
   </url><url>
-    <loc>https://sckn.dev/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="https://sckn.dev/tr/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sckn.dev/categories/"
-                />
-  </url><url>
     <loc>https://sckn.dev/tags/</loc>
     <xhtml:link
                 rel="alternate"

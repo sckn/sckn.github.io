@@ -4,6 +4,8 @@ title = "Seçkin ALAN"
 theme="archie"
 copyright = "Copyleft | Seçkin ALAN"
 defaultContentLanguage = "en"
+[Taxonomies]
+  tag = "tags"
 [languages]
   [languages.en]
     weight = 1
