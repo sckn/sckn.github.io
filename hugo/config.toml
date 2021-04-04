@@ -57,3 +57,8 @@ url = "https://twitter.com/scknorg/"
 name = "Linkedin"
 icon = "linkedin"
 url = "https://www.linkedin.com/in/sckna/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
