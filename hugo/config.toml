@@ -3,3 +3,55 @@ languageCode = "en-us"
 title = "Seçkin ALAN"
 theme="archie"
 copyright = "Copyleft | Seçkin ALAN"
+defaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    weight = 1
+    languageName = "EN"
+      [[languages.en.menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+      [[languages.en.menu.main]]
+        name = "About"
+        url = "/about"
+        weight = 2
+      [[languages.en.menu.main]]
+        name = "All Posts"
+        url = "/posts"
+        weight = 3
+
+
+
+  [languages.tr]
+    weight = 2
+    languageName = "TR"
+      [[languages.tr.menu.main]]
+        name = "Hakkımda"
+        url = "/tr/about"
+        weight = 2
+      [[languages.tr.menu.main]]
+        name = "Tüm İçerikler"
+        url = "/tr/posts"
+        weight = 3
+      [[languages.tr.menu.main]]
+        name = "Ana Sayfa"
+        url = "/tr"
+        weight = 1
+
+
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/sckn"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/scknorg/"
+
+[[params.social]]
+name = "Linkedin"
+icon = "linkedin"
+url = "https://www.linkedin.com/in/sckna/"

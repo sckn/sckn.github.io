@@ -6,5 +6,9 @@
 		{{ range .Site.Menus.main }}
 		<a href="{{ .URL }}">{{ .Name }}</a>
 		{{ end }}
+|
+{{ range $.Site.Home.AllTranslations }}
+<a style="border-bottom:3px solid #119a15 !important" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+{{ end }}
 	</nav>
 </header>
