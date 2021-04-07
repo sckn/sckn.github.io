@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Seçkin ALAN</title>
+    <link>https://sckn.dev/tr/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Seçkin ALAN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyleft | Seçkin ALAN</copyright>
+    <lastBuildDate>Wed, 07 Apr 2021 22:29:57 +0300</lastBuildDate><atom:link href="https://sckn.dev/tr/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helm ile Kubernetes Uygulamalarını Paketlemek</title>
+      <link>https://sckn.dev/tr/posts/packing-applications-with-helm-for-kubernetes/</link>
+      <pubDate>Wed, 07 Apr 2021 22:29:57 +0300</pubDate>
+      
+      <guid>https://sckn.dev/tr/posts/packing-applications-with-helm-for-kubernetes/</guid>
+      <description>&lt;p&gt;Merhaba,&lt;/p&gt;
+&lt;p&gt;Bu yazıda sizlere elimden geldiğince helm anlatacağım.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
