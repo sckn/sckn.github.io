@@ -5,14 +5,24 @@
     <link>https://sckn.dev/</link>
     <description>Recent content on sckn@www </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://sckn.dev/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Oct 2023 23:10:33 +0300</lastBuildDate><atom:link href="https://sckn.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://sckn.dev/readme/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Hello World</title>
+      <link>https://sckn.dev/posts/hello-world/</link>
+      <pubDate>Thu, 12 Oct 2023 23:10:33 +0300</pubDate>
       
-      <guid>https://sckn.dev/readme/</guid>
-      <description></description>
+      <guid>https://sckn.dev/posts/hello-world/</guid>
+      <description>Hello World</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://sckn.dev/about/</link>
+      <pubDate>Thu, 12 Oct 2023 22:49:19 +0300</pubDate>
+      
+      <guid>https://sckn.dev/about/</guid>
+      <description>About Me</description>
     </item>
     
   </channel>
