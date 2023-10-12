@@ -1,0 +1,4 @@
+baseURL = 'https://sckn.dev/'
+languageCode = 'en-us'
+title = 'sckn@www '
+theme = "hugo-theme-console"
