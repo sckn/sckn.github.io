@@ -2,6 +2,7 @@ baseURL = 'https://sckn.dev/'
 languageCode = 'en-us'
 title = 'sckn@www '
 theme = "hugo-theme-console"
+staticDir = ['static']
 [markup.goldmark.renderer]
   unsafe = true # Allow HTML in md files
 [params]
