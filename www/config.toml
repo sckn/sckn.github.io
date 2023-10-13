@@ -2,24 +2,16 @@ baseURL = 'https://sckn.dev/'
 languageCode = 'en-us'
 title = 'sckn@www '
 theme = "hugo-theme-console"
-
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML in md files
 [params]
 	showglobe = true
 
-	favicon = "favicon.ico"
 
-	analytics = "code-here"
-
-	github = "https://github.com/alexurquhart"
-	twitter = "https://twitter.com/alexanderurq"
-	linkedin = "https://www.linkedin.com/profile/view?id=339355941"
-	email = "alexurquhart@gmail.com"
-	
-	profilepic = "img/profile.png"
-	
-	title = "MY NAME"
-	subtitle = "MY HUGO BLOG"
 	
 	[[params.navlinks]]
 	name = "About"
 	url = "about"
+	[[params.navlinks]]
+	name = "CV"
+	url = "cv"
