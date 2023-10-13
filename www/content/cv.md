@@ -1,7 +1,7 @@
 ---
 title: "Cv"
 date: 2023-10-13T14:51:39+03:00
-draft: true
+draft: false
 ---
 
 
