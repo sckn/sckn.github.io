@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on sckn.dev - DevOps Engineer</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://sckn.dev/blog/</link>
     <description>Recent content in Blog on sckn.dev - DevOps Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sckn.dev/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/blog/helloworld/</link>
+      <link>https://sckn.dev/blog/helloworld/</link>
       <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/helloworld/</guid>
+      <guid>https://sckn.dev/blog/helloworld/</guid>
       <description>&lt;p&gt;Hello World1&lt;/p&gt;</description>
     </item>
   </channel>
