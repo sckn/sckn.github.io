@@ -2,150 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on sckn.dev - DevOps Engineer</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://sckn.dev/tags/</link>
     <description>Recent content in Tags on sckn.dev - DevOps Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jan 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate>
+    <atom:link href="https://sckn.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Devops</title>
-      <link>http://localhost:1313/tags/devops/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/devops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Grafana</title>
-      <link>http://localhost:1313/tags/grafana/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/grafana/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kubernetes</title>
-      <link>http://localhost:1313/tags/kubernetes/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Monitoring</title>
-      <link>http://localhost:1313/tags/monitoring/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/monitoring/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Prometheus</title>
-      <link>http://localhost:1313/tags/prometheus/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/prometheus/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Aws</title>
-      <link>http://localhost:1313/tags/aws/</link>
+      <title>Helloworld</title>
+      <link>https://sckn.dev/tags/helloworld/</link>
       <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/aws/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Iac</title>
-      <link>http://localhost:1313/tags/iac/</link>
-      <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/iac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Infrastructure</title>
-      <link>http://localhost:1313/tags/infrastructure/</link>
-      <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/infrastructure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Terraform</title>
-      <link>http://localhost:1313/tags/terraform/</link>
-      <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/terraform/</guid>
+      <guid>https://sckn.dev/tags/helloworld/</guid>
       <description></description>
     </item>
     <item>
       <title>Blue</title>
-      <link>http://localhost:1313/tags/blue/</link>
+      <link>https://sckn.dev/tags/blue/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/blue/</guid>
+      <guid>https://sckn.dev/tags/blue/</guid>
       <description></description>
     </item>
     <item>
       <title>Green</title>
-      <link>http://localhost:1313/tags/green/</link>
+      <link>https://sckn.dev/tags/green/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/green/</guid>
+      <guid>https://sckn.dev/tags/green/</guid>
       <description></description>
     </item>
     <item>
       <title>Red</title>
-      <link>http://localhost:1313/tags/red/</link>
+      <link>https://sckn.dev/tags/red/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/tags/red/</guid>
+      <guid>https://sckn.dev/tags/red/</guid>
       <description></description>
     </item>
     <item>
       <title>Automation</title>
-      <link>http://localhost:1313/tags/automation/</link>
+      <link>https://sckn.dev/tags/automation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/automation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Boto3</title>
-      <link>http://localhost:1313/tags/boto3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/boto3/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cost-Optimization</title>
-      <link>http://localhost:1313/tags/cost-optimization/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cost-optimization/</guid>
+      <guid>https://sckn.dev/tags/automation/</guid>
       <description></description>
     </item>
     <item>
       <title>Cybersecurity</title>
-      <link>http://localhost:1313/tags/cybersecurity/</link>
+      <link>https://sckn.dev/tags/cybersecurity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cybersecurity/</guid>
+      <guid>https://sckn.dev/tags/cybersecurity/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>https://sckn.dev/tags/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://sckn.dev/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Training</title>
-      <link>http://localhost:1313/tags/training/</link>
+      <link>https://sckn.dev/tags/training/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/training/</guid>
+      <guid>https://sckn.dev/tags/training/</guid>
       <description></description>
     </item>
     <item>
       <title>Vulnerability-Assessment</title>
-      <link>http://localhost:1313/tags/vulnerability-assessment/</link>
+      <link>https://sckn.dev/tags/vulnerability-assessment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/vulnerability-assessment/</guid>
+      <guid>https://sckn.dev/tags/vulnerability-assessment/</guid>
       <description></description>
     </item>
   </channel>

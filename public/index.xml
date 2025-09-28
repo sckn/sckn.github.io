@@ -2,60 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on sckn.dev - DevOps Engineer</title>
-    <link>http://localhost:1313/</link>
+    <link>https://sckn.dev/</link>
     <description>Recent content in Home on sckn.dev - DevOps Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jan 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate>
+    <atom:link href="https://sckn.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building a Complete Kubernetes Monitoring Stack</title>
-      <link>http://localhost:1313/blog/kubernetes-monitoring-stack/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/kubernetes-monitoring-stack/</guid>
-      <description>&lt;h1 id=&#34;building-a-complete-kubernetes-monitoring-stack&#34;&gt;Building a Complete Kubernetes Monitoring Stack&lt;/h1&gt;&#xA;&lt;p&gt;Monitoring is crucial for maintaining healthy Kubernetes clusters. In this post, we&amp;rsquo;ll build a complete monitoring stack using Prometheus, Grafana, and AlertManager.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-monitoring-matters&#34;&gt;Why Monitoring Matters&lt;/h2&gt;&#xA;&lt;p&gt;In a microservices architecture running on Kubernetes, observability becomes critical. Without proper monitoring, you&amp;rsquo;re flying blind when issues arise.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-stack-components&#34;&gt;The Stack Components&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prometheus&#34;&gt;Prometheus&lt;/h3&gt;&#xA;&lt;p&gt;Prometheus serves as our metrics collection and storage engine. It scrapes metrics from various endpoints and stores them in a time-series database.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Terraform Best Practices for Production Infrastructure</title>
-      <link>http://localhost:1313/blog/terraform-best-practices/</link>
+      <title>Hello World</title>
+      <link>https://sckn.dev/blog/helloworld/</link>
       <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/terraform-best-practices/</guid>
-      <description>&lt;h1 id=&#34;terraform-best-practices-for-production-infrastructure&#34;&gt;Terraform Best Practices for Production Infrastructure&lt;/h1&gt;&#xA;&lt;p&gt;Infrastructure as Code (IaC) with Terraform has revolutionized how we manage cloud resources. Here are the essential practices I&amp;rsquo;ve learned from managing production infrastructure.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-management&#34;&gt;State Management&lt;/h2&gt;&#xA;&lt;h3 id=&#34;remote-state-storage&#34;&gt;Remote State Storage&lt;/h3&gt;&#xA;&lt;p&gt;Always use remote state storage for production environments:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&#xA;&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 1&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 2&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 3&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 4&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 5&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 6&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 7&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 8&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt; 9&#xA;&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679&#34;&gt;10&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-hcl&#34; data-lang=&#34;hcl&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff7b72&#34;&gt;terraform&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff7b72&#34;&gt;backend&lt;/span&gt; &lt;span style=&#34;color:#a5d6ff&#34;&gt;&amp;#34;s3&amp;#34;&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    bucket &lt;span style=&#34;color:#ff7b72;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a5d6ff&#34;&gt;&amp;#34;my-terraform-state&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    key    &lt;span style=&#34;color:#ff7b72;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a5d6ff&#34;&gt;&amp;#34;production/terraform.tfstate&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    region &lt;span style=&#34;color:#ff7b72;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a5d6ff&#34;&gt;&amp;#34;us-west-2&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dynamodb_table &lt;span style=&#34;color:#ff7b72;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a5d6ff&#34;&gt;&amp;#34;terraform-locks&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    encrypt        &lt;span style=&#34;color:#ff7b72;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff7b72&#34;&gt;true&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;h3 id=&#34;state-locking&#34;&gt;State Locking&lt;/h3&gt;&#xA;&lt;p&gt;Use DynamoDB for state locking to prevent concurrent modifications.&lt;/p&gt;</description>
+      <guid>https://sckn.dev/blog/helloworld/</guid>
+      <description>&lt;p&gt;Hello World&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 3</title>
-      <link>http://localhost:1313/posts/post-3/</link>
+      <link>https://sckn.dev/posts/post-3/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-3/</guid>
+      <guid>https://sckn.dev/posts/post-3/</guid>
       <description>&lt;p&gt;Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 2</title>
-      <link>http://localhost:1313/posts/post-2/</link>
+      <link>https://sckn.dev/posts/post-2/</link>
       <pubDate>Wed, 15 Feb 2023 10:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-2/</guid>
+      <guid>https://sckn.dev/posts/post-2/</guid>
       <description>&lt;p&gt;Anim eiusmod irure incididunt sint cupidatat. Incididunt irure irure irure nisi ipsum do ut quis fugiat consectetur proident cupidatat incididunt cillum. Dolore voluptate occaecat qui mollit laborum ullamco et. Ipsum laboris officia anim laboris culpa eiusmod ex magna ex cupidatat anim ipsum aute. Mollit aliquip occaecat qui sunt velit ut cupidatat reprehenderit enim sunt laborum. Velit veniam in officia nulla adipisicing ut duis officia.&lt;/p&gt;&#xA;&lt;p&gt;Exercitation voluptate irure in irure tempor mollit Lorem nostrud ad officia. Velit id fugiat occaecat do tempor. Sit officia Lorem aliquip eu deserunt consectetur. Aute proident deserunt in nulla aliquip dolore ipsum Lorem ut cupidatat consectetur sit sint laborum. Esse cupidatat sit sint sunt tempor exercitation deserunt. Labore dolor duis laborum est do nisi ut veniam dolor et nostrud nostrud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Post 1</title>
-      <link>http://localhost:1313/posts/post-1/</link>
+      <link>https://sckn.dev/posts/post-1/</link>
       <pubDate>Sun, 15 Jan 2023 09:00:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/post-1/</guid>
+      <guid>https://sckn.dev/posts/post-1/</guid>
       <description>&lt;p&gt;Tempor proident minim aliquip reprehenderit dolor et ad anim Lorem duis sint eiusmod. Labore ut ea duis dolor. Incididunt consectetur proident qui occaecat incididunt do nisi Lorem. Tempor do laborum elit laboris excepteur eiusmod do. Eiusmod nisi excepteur ut amet pariatur adipisicing Lorem.&lt;/p&gt;&#xA;&lt;p&gt;Occaecat nulla excepteur dolore excepteur duis eiusmod ullamco officia anim in voluptate ea occaecat officia. Cillum sint esse velit ea officia minim fugiat. Elit ea esse id aliquip pariatur cupidatat id duis minim incididunt ea ea. Anim ut duis sunt nisi. Culpa cillum sit voluptate voluptate eiusmod dolor. Enim nisi Lorem ipsum irure est excepteur voluptate eu in enim nisi. Nostrud ipsum Lorem anim sint labore consequat do.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>AWS Automation Toolkit</title>
-      <link>http://localhost:1313/projects/aws-automation-toolkit/</link>
+      <title>CyberExam Lab</title>
+      <link>https://sckn.dev/projects/cyberexam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/aws-automation-toolkit/</guid>
-      <description>&lt;h1 id=&#34;aws-automation-toolkit&#34;&gt;AWS Automation Toolkit&lt;/h1&gt;&#xA;&lt;p&gt;A powerful Python-based toolkit designed to automate common AWS infrastructure management tasks and optimize cloud costs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CyberDrill Lab</title>
-      <link>http://localhost:1313/projects/cyberdrill-lab/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/cyberdrill-lab/</guid>
-      <description>&lt;h1 id=&#34;cyberdrill-lab&#34;&gt;CyberDrill Lab&lt;/h1&gt;&#xA;&lt;p&gt;An automated cybersecurity training environment that provides hands-on experience with real-world security scenarios using containerized vulnerable applications.&lt;/p&gt;</description>
+      <guid>https://sckn.dev/projects/cyberexam/</guid>
+      <description>&lt;h1 id=&#34;cyberexam-lab&#34;&gt;Cyberexam Lab&lt;/h1&gt;&#xA;&lt;p&gt;An automated cybersecurity training environment that provides hands-on experience with real-world security scenarios using containerized vulnerable applications.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -6,15 +6,8 @@
     <description>Recent content in Devops on sckn.dev - DevOps Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jan 2024 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Building a Complete Kubernetes Monitoring Stack</title>
-      <link>http://localhost:1313/blog/kubernetes-monitoring-stack/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/kubernetes-monitoring-stack/</guid>
-      <description>&lt;h1 id=&#34;building-a-complete-kubernetes-monitoring-stack&#34;&gt;Building a Complete Kubernetes Monitoring Stack&lt;/h1&gt;&#xA;&lt;p&gt;Monitoring is crucial for maintaining healthy Kubernetes clusters. In this post, we&amp;rsquo;ll build a complete monitoring stack using Prometheus, Grafana, and AlertManager.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-monitoring-matters&#34;&gt;Why Monitoring Matters&lt;/h2&gt;&#xA;&lt;p&gt;In a microservices architecture running on Kubernetes, observability becomes critical. Without proper monitoring, you&amp;rsquo;re flying blind when issues arise.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-stack-components&#34;&gt;The Stack Components&lt;/h2&gt;&#xA;&lt;h3 id=&#34;prometheus&#34;&gt;Prometheus&lt;/h3&gt;&#xA;&lt;p&gt;Prometheus serves as our metrics collection and storage engine. It scrapes metrics from various endpoints and stores them in a time-series database.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Terraform Best Practices for Production Infrastructure</title>
       <link>http://localhost:1313/blog/terraform-best-practices/</link>

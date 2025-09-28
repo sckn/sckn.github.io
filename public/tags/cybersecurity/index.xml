@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cybersecurity on sckn.dev - DevOps Engineer</title>
-    <link>http://localhost:1313/tags/cybersecurity/</link>
+    <link>https://sckn.dev/tags/cybersecurity/</link>
     <description>Recent content in Cybersecurity on sckn.dev - DevOps Engineer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://sckn.dev/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CyberDrill Lab</title>
-      <link>http://localhost:1313/projects/cyberdrill-lab/</link>
+      <title>CyberExam Lab</title>
+      <link>https://sckn.dev/projects/cyberexam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/cyberdrill-lab/</guid>
-      <description>&lt;h1 id=&#34;cyberdrill-lab&#34;&gt;CyberDrill Lab&lt;/h1&gt;&#xA;&lt;p&gt;An automated cybersecurity training environment that provides hands-on experience with real-world security scenarios using containerized vulnerable applications.&lt;/p&gt;</description>
+      <guid>https://sckn.dev/projects/cyberexam/</guid>
+      <description>&lt;h1 id=&#34;cyberexam-lab&#34;&gt;Cyberexam Lab&lt;/h1&gt;&#xA;&lt;p&gt;An automated cybersecurity training environment that provides hands-on experience with real-world security scenarios using containerized vulnerable applications.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

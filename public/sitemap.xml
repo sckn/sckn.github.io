@@ -2,91 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/kubernetes-monitoring-stack/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/devops/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/grafana/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/kubernetes/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/monitoring/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/prometheus/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/aws/</loc>
+    <loc>https://sckn.dev/blog/</loc>
     <lastmod>2024-01-10T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/iac/</loc>
+    <loc>https://sckn.dev/blog/helloworld/</loc>
     <lastmod>2024-01-10T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/infrastructure/</loc>
+    <loc>https://sckn.dev/tags/helloworld/</loc>
     <lastmod>2024-01-10T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/terraform/</loc>
+    <loc>https://sckn.dev/tags/</loc>
     <lastmod>2024-01-10T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/terraform-best-practices/</loc>
-    <lastmod>2024-01-10T14:30:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/blue/</loc>
+    <loc>https://sckn.dev/tags/blue/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/green/</loc>
+    <loc>https://sckn.dev/tags/green/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-3/</loc>
+    <loc>https://sckn.dev/posts/post-3/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/red/</loc>
+    <loc>https://sckn.dev/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-2/</loc>
+    <loc>https://sckn.dev/posts/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-1/</loc>
+    <loc>https://sckn.dev/posts/post-1/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://sckn.dev/posts/</loc>
     <lastmod>2023-01-01T08:30:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://sckn.dev/</loc>
     <lastmod>2023-01-01T08:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
+    <loc>https://sckn.dev/tags/automation/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/aws-automation-toolkit/</loc>
+    <loc>https://sckn.dev/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/boto3/</loc>
+    <loc>https://sckn.dev/projects/cyberexam/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://sckn.dev/tags/cybersecurity/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/cost-optimization/</loc>
+    <loc>https://sckn.dev/tags/docker/</loc>
   </url><url>
-    <loc>http://localhost:1313/projects/cyberdrill-lab/</loc>
+    <loc>https://sckn.dev/projects/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/cybersecurity/</loc>
+    <loc>https://sckn.dev/tags/training/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/docker/</loc>
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/training/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/vulnerability-assessment/</loc>
+    <loc>https://sckn.dev/tags/vulnerability-assessment/</loc>
   </url>
 </urlset>
