@@ -4,7 +4,7 @@ description: "Automated cybersecurity training environment with Docker container
 tags: ["docker", "cybersecurity", "automation", "training", "vulnerability-assessment"]
 status: "Active"
 github: "https://cyberexam.io"
-filename: "cyberdrill.sh"
+filename: "cyberexam.io"
 ---
 
 # Cyberexam Lab
