@@ -2,7 +2,7 @@ baseURL = 'https://sckn.dev/'
 languageCode = 'en-us'
 title = 'sckn.dev - DevOps Engineer'
 theme = 'retro-terminal'
-
+publishDir = "docs"
 # Content settings
 [pagination]
 pagerSize = 10
