@@ -15,4 +15,4 @@ An automated cybersecurity training environment that provides hands-on experienc
 
 ## Overview
 
-CyberDrill Lab creates isolated, reproducible cybersecurity training environments using Docker containers. It's designed for security professionals, students, and anyone looking to improve their penetration testing and vulnerability assessment skills.
+Cyberexam Lab creates isolated, reproducible cybersecurity training environments using Docker containers. It's designed for security professionals, students, and anyone looking to improve their penetration testing and vulnerability assessment skills.
