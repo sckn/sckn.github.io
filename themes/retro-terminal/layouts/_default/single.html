@@ -23,7 +23,7 @@
             <div class="bg-black p-6 sm:p-8 lg:p-10 xl:p-12 font-mono">
                 <!-- Command Prompt -->
                 <div class="mb-6">
-                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">cat {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
+                    <span class="text-neon-green">{{ .Site.Params.terminalUser | default "user@portfolio" }}</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">cat {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
                 </div>
                 
                 <!-- File Header with Metadata -->
@@ -81,9 +81,11 @@
                     </h1>
                 </div>
                 
+         
+                
                 <!-- Command Prompt for Content -->
                 <div class="mb-4">
-                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">less {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
+                    <span class="text-neon-green">{{ .Site.Params.terminalUser | default "user@portfolio" }}</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">less {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
                 </div>
             </div>
         </div>
@@ -116,7 +118,7 @@
                         # End of file - {{ .WordCount }} words, {{ .ReadingTime }} min read
                     </div>
                     <div class="text-neon-green font-mono">
-                        <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                        <span class="text-neon-green">{{ .Site.Params.terminalUser | default "user@portfolio" }}</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
                     </div>
                 </div>
             </div>
@@ -139,7 +141,7 @@
             <div class="bg-black p-6 sm:p-8 lg:p-10 xl:p-12 font-mono">
                 <!-- Command Prompt -->
                 <div class="mb-6">
-                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
+                    <span class="text-neon-green">{{ .Site.Params.terminalUser | default "user@portfolio" }}</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
                 </div>
                 
                 <!-- Navigation Grid -->
@@ -204,7 +206,7 @@
                 
                 <!-- Command Prompt End -->
                 <div class="mt-8 pt-4 border-t border-gray-700">
-                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                    <span class="text-neon-green">{{ .Site.Params.terminalUser | default "user@portfolio" }}</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
                 </div>
             </div>
         </div>

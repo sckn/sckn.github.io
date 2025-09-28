@@ -22,7 +22,7 @@ enableGitInfo = false
 
 # Site parameters
 [params]
-  author = "Seckin"
+  author = "Seçkin ALAN"
   description = "DevOps Engineer specializing in cloud infrastructure, automation, and security"
   keywords = ["DevOps", "Cloud", "AWS", "Kubernetes", "Terraform", "Automation"]
   
@@ -38,7 +38,7 @@ enableGitInfo = false
   showWordCount = true
   
   # Terminal theme settings
-  terminalPrompt = "sckn@devops:~$"
+  terminalPrompt = "root@sckn.dev:~#"
   asciiArt = '''
      _____ _____ _  __ _   _       _            
     /  ___/  __ \ |/ /| \ | |     | |           
@@ -55,9 +55,9 @@ enableGitInfo = false
   weight = 10
 
 [[menu.main]]
-  name = "About"
-  url = "/#about"
-  weight = 20
+name = "About"
+url = "/about"
+weight = 1020
 
 [[menu.main]]
   name = "Projects"

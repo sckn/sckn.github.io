@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - sckn.dev - DevOps Engineer</title>
+    <meta name="description" content="DevOps Engineer passionate about automation, cloud infrastructure, and turning complex problems into elegant solutions">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'neon-green': '#39ff14',
+                        'neon-cyan': '#00ffff',
+                        'neon-amber': '#ffbf00',
+                        'neon-purple': '#bf00ff',
+                        'terminal-bg': '#0a0a0a',
+                    },
+                    animation: {
+                        'blink': 'blink 1s infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fadeIn': 'fadeIn 0.6s ease-out',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 50%': { opacity: '1' },
+                            '51%, 100%': { opacity: '0' },
+                        },
+                        glow: {
+                            'from': { 
+                                'text-shadow': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor',
+                                'box-shadow': '0 0 5px currentColor'
+                            },
+                            'to': { 
+                                'text-shadow': '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
+                                'box-shadow': '0 0 10px currentColor, 0 0 20px currentColor'
+                            },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .neon-glow {
+            text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+        }
+        
+        .neon-glow-hover:hover {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+            box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        }
+        
+        .terminal-window {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #333;
+        }
+        
+        .scanlines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 50%, rgba(57, 255, 20, 0.02) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-terminal-bg text-neon-green font-mono min-h-screen relative scanlines">
+    
+    
+<header class="fixed top-0 w-full bg-terminal-bg/90 backdrop-blur-sm border-b border-neon-green/20 z-50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            
+            <div class="text-2xl font-bold neon-glow text-neon-green">
+                <a href="http://localhost:1313/">
+                    <span class="text-neon-cyan">[</span>Seçkin ALAN<span class="text-neon-cyan">]</span>
+                </a>
+            </div>
+            
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="http://localhost:1313/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+                <a href="http://localhost:1313/about" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+                <a href="http://localhost:1313/projects/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+                <a href="http://localhost:1313/blog/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+                <a href="http://localhost:1313/#contact" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+            </div>
+            
+            
+            <div class="md:hidden">
+                <button class="text-neon-green neon-glow-hover" onclick="toggleMobileMenu()">
+                    <span class="text-xl">[≡]</span>
+                </button>
+            </div>
+        </div>
+        
+        
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="http://localhost:1313/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+            <a href="http://localhost:1313/#about" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+            <a href="http://localhost:1313/projects/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+            <a href="http://localhost:1313/blog/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+            <a href="http://localhost:1313/#contact" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+</script>
+
+    
+    <main>
+        
+
+
+<article class="py-8 px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 md:pt-28">
+    <div class="container mx-auto max-w-6xl">
+        
+        
+        <div class="terminal-window rounded-lg mb-4 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-xs font-mono">navigation.sh</div>
+                <div class="w-12"></div>
+            </div>
+            
+            
+            <div class="bg-black p-3 sm:p-4 font-mono">
+                <div class="flex items-center text-sm">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~</span><span class="text-white">$ </span><span class="text-neon-amber">pwd</span>
+                </div>
+                <div class="mt-2 flex items-center text-sm">
+                    <span class="text-gray-500">/home/</span>
+                    <a href="/" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow">portfolio</a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <a href="//" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow"></a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <span class="text-neon-amber">about</span>
+                    
+                    <span class="text-gray-500">.md</span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">
+                    about.md
+                </div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/</span><span class="text-white">$ </span><span class="text-neon-amber">cat about.md</span>
+                </div>
+                
+                
+                <div class="border-l-4 border-neon-green pl-6 mb-8 bg-gray-900/30 p-4 rounded-r">
+                    <div class="text-gray-500 text-sm mb-3 font-bold">
+                        
+                        # PROJECT METADATA  
+                        
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <div><span class="text-neon-cyan font-semibold">title:</span> <span class="text-white">"About Me"</span></div>
+                        
+                        
+                        <div><span class="text-neon-cyan font-semibold">description:</span> <span class="text-white">"DevOps Engineer passionate about automation, cloud infrastructure, and turning complex problems into elegant solutions"</span></div>
+                        
+                        
+                        <div><span class="text-neon-cyan font-semibold">author:</span> <span class="text-white">"Seckin"</span></div>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                
+                
+                
+                <div class="mb-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neon-amber neon-glow neon-amber mb-4 leading-tight">
+                        About Me
+                    </h1>
+                    
+                    <p class="text-lg text-gray-400 leading-relaxed">DevOps Engineer passionate about automation, cloud infrastructure, and turning complex problems into elegant solutions</p>
+                    
+                </div>
+                
+        
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">content_viewer.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10">
+                
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-sm sm:text-base leading-relaxed text-gray-300 font-mono px-2 sm:px-4 lg:px-6">
+                        <h2 id="whoami">whoami</h2>
+<p>Hello! I&rsquo;m <strong>Seckin</strong>, a passionate DevOps Engineer with a deep love for automation, cloud infrastructure, and the art of turning complex problems into elegant, scalable solutions. Welcome to my digital workspace where I share my journey through the ever-evolving landscape of technology.</p>
+<h2 id="backgroundsh">./background.sh</h2>
+<p>My journey in technology began with a curiosity about how systems work and a desire to make them work better. Over the years, I&rsquo;ve evolved from understanding individual components to orchestrating entire ecosystems of applications, infrastructure, and processes.</p>
+<p>I believe in the philosophy of <strong>&ldquo;Infrastructure as Code&rdquo;</strong> and <strong>&ldquo;Everything as Code&rdquo;</strong> - treating infrastructure, configurations, and processes with the same discipline and version control as application code. This approach has allowed me to build resilient, scalable, and maintainable systems that can adapt to changing business needs.</p>
+<h2 id="cat-skillsjson">cat skills.json</h2>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;cloud_platforms&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;aws&#34;</span>: [<span style="color:#a5d6ff">&#34;EC2&#34;</span>, <span style="color:#a5d6ff">&#34;ECS&#34;</span>, <span style="color:#a5d6ff">&#34;EKS&#34;</span>, <span style="color:#a5d6ff">&#34;Lambda&#34;</span>, <span style="color:#a5d6ff">&#34;S3&#34;</span>, <span style="color:#a5d6ff">&#34;RDS&#34;</span>, <span style="color:#a5d6ff">&#34;CloudFormation&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;azure&#34;</span>: [<span style="color:#a5d6ff">&#34;Virtual Machines&#34;</span>, <span style="color:#a5d6ff">&#34;AKS&#34;</span>, <span style="color:#a5d6ff">&#34;Azure Functions&#34;</span>, <span style="color:#a5d6ff">&#34;Storage&#34;</span>, <span style="color:#a5d6ff">&#34;ARM Templates&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;gcp&#34;</span>: [<span style="color:#a5d6ff">&#34;Compute Engine&#34;</span>, <span style="color:#a5d6ff">&#34;GKE&#34;</span>, <span style="color:#a5d6ff">&#34;Cloud Functions&#34;</span>, <span style="color:#a5d6ff">&#34;Cloud Storage&#34;</span>, <span style="color:#a5d6ff">&#34;Deployment Manager&#34;</span>]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;containerization&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;docker&#34;</span>: [<span style="color:#a5d6ff">&#34;Container Building&#34;</span>, <span style="color:#a5d6ff">&#34;Multi-stage Builds&#34;</span>, <span style="color:#a5d6ff">&#34;Security Scanning&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;kubernetes&#34;</span>: [<span style="color:#a5d6ff">&#34;Cluster Management&#34;</span>, <span style="color:#a5d6ff">&#34;Helm Charts&#34;</span>, <span style="color:#a5d6ff">&#34;Operators&#34;</span>, <span style="color:#a5d6ff">&#34;Service Mesh&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;orchestration&#34;</span>: [<span style="color:#a5d6ff">&#34;Docker Swarm&#34;</span>, <span style="color:#a5d6ff">&#34;Container Networking&#34;</span>, <span style="color:#a5d6ff">&#34;Storage Management&#34;</span>]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;automation_tools&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;ci_cd&#34;</span>: [<span style="color:#a5d6ff">&#34;Jenkins&#34;</span>, <span style="color:#a5d6ff">&#34;GitLab CI&#34;</span>, <span style="color:#a5d6ff">&#34;GitHub Actions&#34;</span>, <span style="color:#a5d6ff">&#34;Azure DevOps&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;infrastructure&#34;</span>: [<span style="color:#a5d6ff">&#34;Terraform&#34;</span>, <span style="color:#a5d6ff">&#34;Ansible&#34;</span>, <span style="color:#a5d6ff">&#34;Pulumi&#34;</span>, <span style="color:#a5d6ff">&#34;CloudFormation&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;monitoring&#34;</span>: [<span style="color:#a5d6ff">&#34;Prometheus&#34;</span>, <span style="color:#a5d6ff">&#34;Grafana&#34;</span>, <span style="color:#a5d6ff">&#34;ELK Stack&#34;</span>, <span style="color:#a5d6ff">&#34;Datadog&#34;</span>, <span style="color:#a5d6ff">&#34;New Relic&#34;</span>]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;programming&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;scripting&#34;</span>: [<span style="color:#a5d6ff">&#34;Bash&#34;</span>, <span style="color:#a5d6ff">&#34;Python&#34;</span>, <span style="color:#a5d6ff">&#34;PowerShell&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;languages&#34;</span>: [<span style="color:#a5d6ff">&#34;Go&#34;</span>, <span style="color:#a5d6ff">&#34;JavaScript&#34;</span>, <span style="color:#a5d6ff">&#34;YAML&#34;</span>, <span style="color:#a5d6ff">&#34;JSON&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;markup&#34;</span>: [<span style="color:#a5d6ff">&#34;Markdown&#34;</span>, <span style="color:#a5d6ff">&#34;HTML&#34;</span>, <span style="color:#a5d6ff">&#34;CSS&#34;</span>]
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#7ee787">&#34;security&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;practices&#34;</span>: [<span style="color:#a5d6ff">&#34;Security Scanning&#34;</span>, <span style="color:#a5d6ff">&#34;Vulnerability Assessment&#34;</span>, <span style="color:#a5d6ff">&#34;Compliance&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;tools&#34;</span>: [<span style="color:#a5d6ff">&#34;Vault&#34;</span>, <span style="color:#a5d6ff">&#34;SOPS&#34;</span>, <span style="color:#a5d6ff">&#34;Trivy&#34;</span>, <span style="color:#a5d6ff">&#34;Snyk&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#7ee787">&#34;concepts&#34;</span>: [<span style="color:#a5d6ff">&#34;Zero Trust&#34;</span>, <span style="color:#a5d6ff">&#34;Least Privilege&#34;</span>, <span style="color:#a5d6ff">&#34;Defense in Depth&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ls--la-experience">ls -la experience/</h2>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#a5d6ff">5</span> seckin devops  <span style="color:#a5d6ff">160</span> Jan <span style="color:#a5d6ff">15</span> 10:00 .
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#a5d6ff">3</span> seckin devops   <span style="color:#a5d6ff">96</span> Jan <span style="color:#a5d6ff">15</span> 10:00 ..
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#a5d6ff">1</span> seckin devops <span style="color:#a5d6ff">2048</span> Jan <span style="color:#a5d6ff">15</span> 10:00 cloud_migration.md
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#a5d6ff">1</span> seckin devops <span style="color:#a5d6ff">1536</span> Jan <span style="color:#a5d6ff">15</span> 10:00 automation_frameworks.md
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#a5d6ff">1</span> seckin devops <span style="color:#a5d6ff">1024</span> Jan <span style="color:#a5d6ff">15</span> 10:00 monitoring_solutions.md
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#a5d6ff">1</span> seckin devops  <span style="color:#a5d6ff">512</span> Jan <span style="color:#a5d6ff">15</span> 10:00 security_implementations.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="key-achievements">Key Achievements</h3>
+<ul>
+<li>
+<p><strong>Cloud Migration Leadership</strong>: Successfully led multiple large-scale cloud migration projects, reducing infrastructure costs by 40% while improving system reliability and performance.</p>
+</li>
+<li>
+<p><strong>Automation Framework Development</strong>: Built comprehensive CI/CD pipelines that reduced deployment time from hours to minutes, enabling teams to deploy multiple times per day with confidence.</p>
+</li>
+<li>
+<p><strong>Monitoring &amp; Observability</strong>: Implemented end-to-end monitoring solutions that improved system visibility and reduced mean time to resolution (MTTR) by 60%.</p>
+</li>
+<li>
+<p><strong>Security Integration</strong>: Integrated security practices into the development lifecycle, implementing automated security scanning and compliance checks that caught vulnerabilities early in the development process.</p>
+</li>
+</ul>
+<h2 id="cat-philosophytxt">cat philosophy.txt</h2>
+<pre tabindex="0"><code># My DevOps Philosophy
+
+1. **Automate Everything**: If you do it more than twice, automate it.
+2. **Fail Fast, Learn Faster**: Embrace failure as a learning opportunity.
+3. **Measure Everything**: You can&#39;t improve what you don&#39;t measure.
+4. **Security First**: Security is not an afterthought, it&#39;s a foundation.
+5. **Continuous Learning**: Technology evolves rapidly; so should we.
+6. **Collaboration Over Silos**: Break down barriers between teams.
+7. **Infrastructure as Code**: Treat infrastructure with the same discipline as application code.
+</code></pre><h2 id="current_focussh-status">./current_focus.sh &ndash;status</h2>
+<p>Currently, I&rsquo;m diving deep into:</p>
+<ul>
+<li><strong>Kubernetes Ecosystem</strong>: Exploring advanced patterns with service mesh, operators, and GitOps workflows</li>
+<li><strong>Cloud-Native Security</strong>: Implementing zero-trust architectures and runtime security monitoring</li>
+<li><strong>Platform Engineering</strong>: Building internal developer platforms that improve developer experience and productivity</li>
+<li><strong>Observability</strong>: Advanced monitoring, tracing, and logging strategies for distributed systems</li>
+<li><strong>Sustainability</strong>: Green computing practices and optimizing cloud resource usage for environmental impact</li>
+</ul>
+<h2 id="git-log-oneline-personal">git log &ndash;oneline personal/</h2>
+<pre tabindex="0"><code>a1b2c3d feat: Started contributing to open-source DevOps tools
+e4f5g6h docs: Writing technical blog posts about real-world challenges
+h7i8j9k learn: Pursuing cloud certifications and advanced Kubernetes training
+k0l1m2n build: Developing personal projects to explore new technologies
+n3o4p5q connect: Engaging with the DevOps community through conferences and meetups
+</code></pre><h2 id="contact-help">contact &ndash;help</h2>
+<p>I&rsquo;m always excited to connect with fellow technologists, discuss interesting challenges, or explore collaboration opportunities. Whether you&rsquo;re looking to:</p>
+<ul>
+<li>Discuss DevOps strategies and best practices</li>
+<li>Collaborate on open-source projects</li>
+<li>Share experiences about cloud migrations</li>
+<li>Explore new technologies and tools</li>
+<li>Simply have a technical conversation over coffee ☕</li>
+</ul>
+<p>Feel free to reach out! I believe that the best solutions come from diverse perspectives and collaborative thinking.</p>
+<h2 id="echo-lets-build-something-amazing-together">echo &ldquo;Let&rsquo;s build something amazing together!&rdquo;</h2>
+<p>Technology is constantly evolving, and I&rsquo;m passionate about staying at the forefront of this evolution. I&rsquo;m always looking for new challenges that push the boundaries of what&rsquo;s possible with modern infrastructure and automation.</p>
+<p>Thank you for taking the time to learn about my journey. I look forward to connecting and potentially working together to solve complex problems and build robust, scalable systems.</p>
+<hr>
+<p><em>&ldquo;The best way to predict the future is to build it.&rdquo;</em> - And I&rsquo;m here to help build that future, one automated deployment at a time.</p>
+
+                    </div>
+                </div>
+                
+                
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="text-gray-500 text-sm font-mono mb-2">
+                        # End of file - 787 words, 4 min read
+                    </div>
+                    <div class="text-neon-green font-mono">
+                        <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">navigation.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
+                </div>
+                
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 text-sm">
+                    
+                    <div class="space-y-3">
+                        
+                        <div class="text-gray-500 font-bold"># PREVIOUS </div>
+                        <div class="bg-gray-900/30 p-4 rounded border border-gray-800">
+                            <div class="text-gray-600">← No previous </div>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="space-y-3">
+                        <div class="text-gray-500 font-bold"># BACK TO </div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-cyan transition-colors">
+                            <div class="text-neon-cyan mb-2">↑ All </div>
+                            <a href="//" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd ..//
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="space-y-3">
+                        
+                        <div class="text-gray-500 font-bold"># NEXT </div>
+                        <div class="bg-gray-900/30 p-4 rounded border border-gray-800">
+                            <div class="text-gray-600">No next  →</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+
+<style>
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #39ff14;
+    text-shadow: 0 0 10px currentColor;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose p {
+    color: #e5e5e5;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.prose code {
+    background-color: #1a1a1a;
+    color: #00ffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #333;
+    font-size: 0.9em;
+}
+
+.prose pre {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #39ff14;
+}
+
+.prose ul, .prose ol {
+    color: #e5e5e5;
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose blockquote {
+    border-left: 4px solid #39ff14;
+    background-color: #1a1a1a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #e5e5e5;
+    font-style: italic;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.prose th, .prose td {
+    border: 1px solid #333;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background-color: #0a0a0a;
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose td {
+    color: #e5e5e5;
+}
+
+.prose a {
+    color: #00ffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.prose a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 5px currentColor;
+}
+
+.prose strong {
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose em {
+    color: #bf00ff;
+    font-style: italic;
+}
+</style>
+
+
+    </main>
+    
+    
+<footer class="border-t border-neon-green/20 py-6 px-6">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <span class="text-neon-green">[ uptime: 1337 days ]</span>
+                <span class="text-neon-cyan">[ powered by Hugo + Tailwind ]</span>
+            </div>
+            <div class="text-gray-400">
+                © 2025 Seçkin ALAN. All systems operational.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fadeIn');
+            }
+        });
+    }, observerOptions);
+
+    
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+    
+</body>
+</html>
