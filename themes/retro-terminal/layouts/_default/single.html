@@ -1,0 +1,355 @@
+{{ define "main" }}
+
+<!-- Main Article Container -->
+<article class="py-8 px-6 sm:px-8 lg:px-12 xl:px-16 pt-24 md:pt-28">
+    <div class="container mx-auto max-w-4xl">
+        
+        <!-- Terminal Header Window -->
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">
+                    {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}_{{ .File.BaseFileName }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}
+                </div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Terminal Header Content -->
+            <div class="bg-black p-6 sm:p-8 lg:p-10 xl:p-12 font-mono">
+                <!-- Command Prompt -->
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">cat {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
+                </div>
+                
+                <!-- File Header with Metadata -->
+                <div class="border-l-4 border-neon-green pl-6 mb-8 bg-gray-900/30 p-4 rounded-r">
+                    <div class="text-gray-500 text-sm mb-3 font-bold">
+                        {{ if eq .Section "blog" }}
+                        # BLOG POST METADATA
+                        {{ else }}
+                        # PROJECT METADATA  
+                        {{ end }}
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <div><span class="text-neon-cyan font-semibold">title:</span> <span class="text-white">"{{ .Title }}"</span></div>
+                        {{ if eq .Section "blog" }}
+                        <div><span class="text-neon-cyan font-semibold">date:</span> <span class="text-white">{{ .Date.Format "2006-01-02 15:04:05" }}</span></div>
+                        <div><span class="text-neon-cyan font-semibold">reading_time:</span> <span class="text-neon-amber">{{ .ReadingTime }} minutes</span></div>
+                        {{ end }}
+                        {{ if .Params.description }}
+                        <div><span class="text-neon-cyan font-semibold">description:</span> <span class="text-white">"{{ .Params.description }}"</span></div>
+                        {{ end }}
+                        {{ if .Params.author }}
+                        <div><span class="text-neon-cyan font-semibold">author:</span> <span class="text-white">"{{ .Params.author }}"</span></div>
+                        {{ end }}
+                        {{ if eq .Section "projects" }}
+                            {{ if .Params.status }}
+                            <div><span class="text-neon-cyan font-semibold">status:</span> <span class="text-neon-green font-bold">"{{ .Params.status }}"</span></div>
+                            {{ end }}
+                        {{ end }}
+                        {{ if .Params.tags }}
+                        <div><span class="text-neon-cyan font-semibold">tags:</span> <span class="text-white">[{{ range $i, $tag := .Params.tags }}{{ if $i }}, {{ end }}"{{ $tag }}"{{ end }}]</span></div>
+                        {{ end }}
+                    </div>
+                    
+                    <!-- Project Links -->
+                    {{ if eq .Section "projects" }}
+                    <div class="mt-4 space-y-2 text-sm border-t border-gray-700 pt-4">
+                        {{ if .Params.github }}
+                        <div><span class="text-neon-cyan font-semibold">github:</span> <a href="{{ .Params.github }}" class="text-neon-amber hover:text-neon-green transition-colors underline">"{{ .Params.github }}"</a></div>
+                        {{ end }}
+                        {{ if .Params.demo }}
+                        <div><span class="text-neon-cyan font-semibold">demo:</span> <a href="{{ .Params.demo }}" class="text-neon-amber hover:text-neon-green transition-colors underline">"{{ .Params.demo }}"</a></div>
+                        {{ end }}
+                        {{ if .Params.docs }}
+                        <div><span class="text-neon-cyan font-semibold">docs:</span> <a href="{{ .Params.docs }}" class="text-neon-amber hover:text-neon-green transition-colors underline">"{{ .Params.docs }}"</a></div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+                
+                <!-- Title Display -->
+                <div class="mb-6">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-neon-amber neon-glow leading-tight">
+                        {{ .Title }}
+                    </h1>
+                </div>
+                
+                <!-- Command Prompt for Content -->
+                <div class="mb-4">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">less {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Terminal Window -->
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">content_viewer.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Terminal Content -->
+            <div class="bg-black p-6 sm:p-8 lg:p-10 xl:p-12">
+                <!-- Content Display -->
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-sm sm:text-base leading-relaxed text-gray-300 font-mono px-4 sm:px-6 lg:px-8">
+                        {{ .Content }}
+                    </div>
+                </div>
+                
+                <!-- End of File Indicator -->
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="text-gray-500 text-sm font-mono mb-2">
+                        # End of file - {{ .WordCount }} words, {{ .ReadingTime }} min read
+                    </div>
+                    <div class="text-neon-green font-mono">
+                        <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Terminal Window -->
+        <div class="terminal-window rounded-lg overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">navigation.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Terminal Navigation Content -->
+            <div class="bg-black p-6 sm:p-8 lg:p-10 xl:p-12 font-mono">
+                <!-- Command Prompt -->
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
+                </div>
+                
+                <!-- Navigation Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 text-sm">
+                    <!-- Previous Post -->
+                    <div class="space-y-3">
+                        {{ with .PrevInSection }}
+                        <div class="text-gray-500 font-bold"># PREVIOUS {{ upper $.Section }}</div>
+                        <a href="{{ .Permalink }}" class="block p-4 border border-gray-700 rounded-lg hover:border-neon-green hover:bg-gray-900/50 transition-all group bg-gray-900/20">
+                            <div class="flex items-center text-neon-cyan group-hover:text-neon-green mb-2">
+                                <span class="mr-2">←</span>
+                                <span class="font-mono">cd ../{{ .File.BaseFileName }}</span>
+                            </div>
+                            <div class="text-gray-300 group-hover:text-white truncate font-semibold">{{ .Title }}</div>
+                            {{ if eq $.Section "blog" }}
+                            <div class="text-gray-500 text-xs mt-1">{{ .Date.Format "2006-01-02" }}</div>
+                            {{ end }}
+                        </a>
+                        {{ else }}
+                        <div class="text-gray-500 font-bold"># NO PREVIOUS {{ upper .Section }}</div>
+                        <div class="p-4 border border-gray-800 rounded-lg text-gray-600 bg-gray-900/10">
+                            <span>← No previous posts</span>
+                        </div>
+                        {{ end }}
+                    </div>
+                    
+                    <!-- Back to Section -->
+                    <div class="space-y-3">
+                        <div class="text-gray-500 font-bold"># NAVIGATE BACK</div>
+                        <a href="/{{ .Section }}/" class="block p-4 border-2 border-neon-green rounded-lg hover:bg-neon-green hover:text-black transition-all group text-center bg-neon-green/5">
+                            <div class="text-neon-green group-hover:text-black font-mono font-bold">
+                                <span>cd ../{{ .Section }}/</span>
+                            </div>
+                            <div class="text-gray-400 group-hover:text-gray-800 mt-1 text-xs">
+                                View all {{ .Section }}
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Next Post -->
+                    <div class="space-y-3">
+                        {{ with .NextInSection }}
+                        <div class="text-gray-500 font-bold"># NEXT {{ upper $.Section }}</div>
+                        <a href="{{ .Permalink }}" class="block p-4 border border-gray-700 rounded-lg hover:border-neon-green hover:bg-gray-900/50 transition-all group bg-gray-900/20">
+                            <div class="flex items-center justify-end text-neon-cyan group-hover:text-neon-green mb-2">
+                                <span class="font-mono">cd ../{{ .File.BaseFileName }}</span>
+                                <span class="ml-2">→</span>
+                            </div>
+                            <div class="text-gray-300 group-hover:text-white truncate font-semibold text-right">{{ .Title }}</div>
+                            {{ if eq $.Section "blog" }}
+                            <div class="text-gray-500 text-xs mt-1 text-right">{{ .Date.Format "2006-01-02" }}</div>
+                            {{ end }}
+                        </a>
+                        {{ else }}
+                        <div class="text-gray-500 font-bold"># NO NEXT {{ upper .Section }}</div>
+                        <div class="p-4 border border-gray-800 rounded-lg text-gray-600 text-right bg-gray-900/10">
+                            <span>No next posts →</span>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                
+                <!-- Command Prompt End -->
+                <div class="mt-8 pt-4 border-t border-gray-700">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Custom Styles for Content -->
+<style>
+/* Enhanced Typography for Content */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #ffbf00;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 191, 0, 0.3);
+}
+
+.prose h1 { font-size: 2.5rem; }
+.prose h2 { font-size: 2rem; }
+.prose h3 { font-size: 1.75rem; }
+.prose h4 { font-size: 1.5rem; }
+
+.prose p {
+    color: #e5e7eb;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.prose ul, .prose ol {
+    color: #e5e7eb;
+    margin-bottom: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+    color: #e5e7eb;
+}
+
+.prose a {
+    color: #00ffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.prose a:hover {
+    color: #39ff14;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+.prose code {
+    background-color: #1f2937;
+    color: #39ff14;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid #374151;
+}
+
+.prose pre {
+    background-color: #111827;
+    border: 1px solid #374151;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+}
+
+.prose pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #39ff14;
+}
+
+.prose blockquote {
+    border-left: 4px solid #39ff14;
+    background-color: #1f2937;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #d1d5db;
+    font-style: italic;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border: 1px solid #374151;
+}
+
+.prose th, .prose td {
+    border: 1px solid #374151;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background-color: #1f2937;
+    color: #ffbf00;
+    font-weight: bold;
+}
+
+.prose td {
+    color: #e5e7eb;
+}
+
+.prose img {
+    border-radius: 0.5rem;
+    border: 1px solid #374151;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+    margin: 1.5rem 0;
+}
+
+/* Terminal Window Styling */
+.terminal-window {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid #39ff14;
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+/* Animation for Blinking Cursor */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.animate-blink {
+    animation: blink 1s infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+}
+</style>
+
+{{ end }}

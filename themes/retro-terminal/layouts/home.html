@@ -1,0 +1,232 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+    <div class="text-center max-w-4xl mx-auto animate-fadeIn">
+        <!-- ASCII Art Header -->
+        <div class="text-neon-green text-xs md:text-sm lg:text-base mb-8 font-mono leading-tight">
+            <pre class="neon-glow">
+ ███████╗ ██████╗██╗  ██╗███╗   ██╗   ██████╗ ███████╗██╗   ██╗
+ ██╔════╝██╔════╝██║ ██╔╝████╗  ██║   ██╔══██╗██╔════╝██║   ██║
+ ███████╗██║     █████╔╝ ██╔██╗ ██║   ██║  ██║█████╗  ██║   ██║
+ ╚════██║██║     ██╔═██╗ ██║╚██╗██║   ██║  ██║██╔══╝  ╚██╗ ██╔╝
+ ███████║╚██████╗██║  ██╗██║ ╚████║██╗██████╔╝███████╗ ╚████╔╝ 
+ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═════╝ ╚══════╝  ╚═══╝  
+            </pre>
+        </div>
+        
+        <!-- Terminal Prompt -->
+        <div class="text-left max-w-2xl mx-auto mb-8">
+            <div class="terminal-window rounded-lg p-6 text-sm md:text-base">
+                <div class="flex items-center mb-4">
+                    <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                </div>
+                <div class="text-neon-green">
+                    <span class="text-neon-cyan">user@portfolio:~$</span> whoami<br>
+                    <span class="text-neon-amber">> Hello, I'm Seçkin, a DevOps Engineer</span><span class="animate-blink text-neon-green">_</span><br><br>
+                    <span class="text-gray-400"># Building resilient systems, automating everything, and monitoring all the things.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ .Site.BaseURL }}projects/" class="px-8 py-3 border-2 border-neon-green text-neon-green neon-glow-hover transition-all duration-300 hover:bg-neon-green hover:text-black font-semibold">
+                [ View Projects ]
+            </a>
+            <a href="#contact" class="px-8 py-3 border-2 border-neon-cyan text-neon-cyan neon-glow-hover transition-all duration-300 hover:bg-neon-cyan hover:text-black font-semibold">
+                [ Contact Me ]
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <div class="terminal-window rounded-lg p-8 animate-fadeIn">
+            <div class="flex items-center mb-6">
+                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                <span class="text-gray-400 ml-4">about.sh</span>
+            </div>
+            
+            <div class="space-y-4 text-sm md:text-base">
+                <div>
+                    <span class="text-neon-cyan">user@portfolio:~$</span> <span class="text-neon-green">cat about.txt</span>
+                </div>
+                
+                <div class="text-gray-300 leading-relaxed">
+                    {{ .Site.Params.about | default "Passionate DevOps Engineer with expertise in cloud infrastructure, automation, and continuous integration/deployment. I love turning complex problems into elegant, automated solutions." }}
+                </div>
+                
+                <div class="mt-6">
+                    <span class="text-neon-cyan">user@portfolio:~$</span> <span class="text-neon-green">./skills.sh --list</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <div class="text-neon-amber">▶ Cloud Platforms:</div>
+                        <div class="text-gray-300 ml-4">AWS, Azure, GCP</div>
+                    </div>
+                    <div>
+                        <div class="text-neon-amber">▶ Containers:</div>
+                        <div class="text-gray-300 ml-4">Docker, Kubernetes, Helm</div>
+                    </div>
+                    <div>
+                        <div class="text-neon-amber">▶ Infrastructure as Code:</div>
+                        <div class="text-gray-300 ml-4">Terraform, CloudFormation, Ansible</div>
+                    </div>
+                    <div>
+                        <div class="text-neon-amber">▶ CI/CD:</div>
+                        <div class="text-gray-300 ml-4">Jenkins, GitLab CI, GitHub Actions</div>
+                    </div>
+                    <div>
+                        <div class="text-neon-amber">▶ Monitoring:</div>
+                        <div class="text-gray-300 ml-4">Prometheus, Grafana, ELK Stack</div>
+                    </div>
+                    <div>
+                        <div class="text-neon-amber">▶ Languages:</div>
+                        <div class="text-gray-300 ml-4">Python, Bash, Go, YAML</div>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <span class="text-neon-green">Process completed successfully. Exit code: 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Projects Section -->
+<section id="projects-preview" class="py-20 px-6">
+    <div class="container mx-auto max-w-7xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 neon-glow text-neon-green">
+            <span class="text-neon-cyan">[</span> Featured Projects <span class="text-neon-cyan">]</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+            <div class="terminal-window rounded-lg p-8 neon-glow-hover transition-all duration-300 hover:border-neon-green animate-fadeIn">
+                <div class="flex items-center mb-4">
+                    <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                    <span class="text-gray-400 ml-4">{{ .Params.filename | default "project.sh" }}</span>
+                </div>
+                <h3 class="text-xl font-bold text-neon-amber mb-3">{{ .Title }}</h3>
+                <p class="text-gray-300 mb-4">{{ .Summary }}</p>
+                <div class="flex justify-between items-center">
+                    <a href="{{ .Permalink }}" class="text-neon-green neon-glow-hover hover:text-neon-cyan transition-colors">View Project →</a>
+                    {{ if .Params.github }}
+                    <a href="{{ .Params.github }}" class="text-neon-cyan neon-glow-hover hover:text-neon-green transition-colors text-sm">GitHub</a>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{{ .Site.BaseURL }}projects/" class="px-8 py-3 border-2 border-neon-cyan text-neon-cyan neon-glow-hover transition-all duration-300 hover:bg-neon-cyan hover:text-black font-semibold">
+                [ View All Projects ]
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Blog Posts Section -->
+<section id="blog-preview" class="py-20 px-6">
+    <div class="container mx-auto max-w-6xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 neon-glow text-neon-green">
+            <span class="text-neon-cyan">[</span> Latest Posts <span class="text-neon-cyan">]</span>
+        </h2>
+        
+        <div class="terminal-window rounded-lg p-6 animate-fadeIn">
+            <div class="flex items-center mb-6">
+                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                <span class="text-gray-400 ml-4">system.log</span>
+            </div>
+            
+        <!-- Recent Blog Posts -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {{ range first 2 (where .Site.RegularPages "Section" "blog") }}
+            <div class="terminal-window rounded-lg p-8 neon-glow-hover transition-all duration-300 hover:border-neon-green animate-fadeIn">
+                <div class="flex items-center mb-4">
+                    <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                    <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                    <span class="text-gray-400 ml-4">{{ .Date.Format "2006-01-02" }}.log</span>
+                </div>
+                <h3 class="text-xl font-bold text-neon-amber mb-3">{{ .Title }}</h3>
+                <p class="text-gray-300 mb-4">{{ .Summary }}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-neon-cyan text-sm">{{ .ReadingTime }} min read</span>
+                    <a href="{{ .Permalink }}" class="text-neon-green neon-glow-hover hover:text-neon-cyan transition-colors">Read more →</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+            
+            <div class="text-center mt-8">
+                <a href="{{ .Site.BaseURL }}blog/" class="text-neon-cyan neon-glow-hover hover:text-neon-green transition-colors">
+                    → View All Posts
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 neon-glow text-neon-green">
+            <span class="text-neon-cyan">[</span> Contact <span class="text-neon-cyan">]</span>
+        </h2>
+        
+        <div class="terminal-window rounded-lg p-8 md:p-12 animate-fadeIn">
+            <div class="flex items-center mb-8">
+                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                <span class="text-gray-400 ml-4">contact.sh</span>
+            </div>
+            
+            <div class="space-y-6 text-sm md:text-base">
+                <div>
+                    <span class="text-neon-cyan">user@portfolio:~$</span> <span class="text-neon-green">./connect.sh --establish-link</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <span class="text-neon-green mr-3">📧</span>
+                        <span class="text-gray-300">{{ .Site.Params.email }}</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-neon-green mr-3">🔗</span>
+                        <a href="{{ .Site.Params.linkedin }}" class="text-neon-cyan neon-glow-hover hover:text-neon-green transition-colors">LinkedIn</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-neon-green mr-3">💻</span>
+                        <a href="{{ .Site.Params.github }}" class="text-neon-cyan neon-glow-hover hover:text-neon-green transition-colors">GitHub</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-neon-green mr-3">📍</span>
+                        <span class="text-gray-300">{{ .Site.Params.location }}</span>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t border-neon-green/20">
+                    <span class="text-neon-green text-sm md:text-base">Connection established. Ready to collaborate!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ end }}

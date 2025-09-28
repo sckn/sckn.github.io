@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Automation Toolkit - sckn.dev - DevOps Engineer</title>
+    <meta name="description" content="A comprehensive Python toolkit for automating AWS infrastructure management and cost optimization">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'neon-green': '#39ff14',
+                        'neon-cyan': '#00ffff',
+                        'neon-amber': '#ffbf00',
+                        'neon-purple': '#bf00ff',
+                        'terminal-bg': '#0a0a0a',
+                    },
+                    animation: {
+                        'blink': 'blink 1s infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fadeIn': 'fadeIn 0.6s ease-out',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 50%': { opacity: '1' },
+                            '51%, 100%': { opacity: '0' },
+                        },
+                        glow: {
+                            'from': { 
+                                'text-shadow': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor',
+                                'box-shadow': '0 0 5px currentColor'
+                            },
+                            'to': { 
+                                'text-shadow': '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor',
+                                'box-shadow': '0 0 10px currentColor, 0 0 20px currentColor'
+                            },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .neon-glow {
+            text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+        }
+        
+        .neon-glow-hover:hover {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+            box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        }
+        
+        .terminal-window {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #333;
+        }
+        
+        .scanlines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 50%, rgba(57, 255, 20, 0.02) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-terminal-bg text-neon-green font-mono min-h-screen relative scanlines">
+    
+    
+<header class="fixed top-0 w-full bg-terminal-bg/90 backdrop-blur-sm border-b border-neon-green/20 z-50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            
+            <div class="text-2xl font-bold neon-glow text-neon-green">
+                <a href="http://localhost:1313/">
+                    <span class="text-neon-cyan">[</span>Seckin<span class="text-neon-cyan">]</span>
+                </a>
+            </div>
+            
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="http://localhost:1313/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+                <a href="http://localhost:1313/#about" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+                <a href="http://localhost:1313/projects/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+                <a href="http://localhost:1313/blog/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+                <a href="http://localhost:1313/#contact" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+            </div>
+            
+            
+            <div class="md:hidden">
+                <button class="text-neon-green neon-glow-hover" onclick="toggleMobileMenu()">
+                    <span class="text-xl">[≡]</span>
+                </button>
+            </div>
+        </div>
+        
+        
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="http://localhost:1313/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+            <a href="http://localhost:1313/#about" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+            <a href="http://localhost:1313/projects/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+            <a href="http://localhost:1313/blog/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+            <a href="http://localhost:1313/#contact" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+</script>
+
+    
+    <main>
+        
+
+
+<article class="py-8 px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 md:pt-28">
+    <div class="container mx-auto max-w-6xl">
+        
+        
+        <div class="terminal-window rounded-lg mb-4 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-xs font-mono">navigation.sh</div>
+                <div class="w-12"></div>
+            </div>
+            
+            
+            <div class="bg-black p-3 sm:p-4 font-mono">
+                <div class="flex items-center text-sm">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~</span><span class="text-white">$ </span><span class="text-neon-amber">pwd</span>
+                </div>
+                <div class="mt-2 flex items-center text-sm">
+                    <span class="text-gray-500">/home/</span>
+                    <a href="/" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow">portfolio</a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <a href="/projects/" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow">projects</a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <span class="text-neon-amber">aws-automation-toolkit</span>
+                    
+                    <span class="text-gray-500">.md</span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">
+                    aws-automation-toolkit.md
+                </div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/projects</span><span class="text-white">$ </span><span class="text-neon-amber">cat aws-automation-toolkit.md</span>
+                </div>
+                
+                
+                <div class="border-l-4 border-neon-green pl-6 mb-8 bg-gray-900/30 p-4 rounded-r">
+                    <div class="text-gray-500 text-sm mb-3 font-bold">
+                        
+                        # PROJECT METADATA  
+                        
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <div><span class="text-neon-cyan font-semibold">title:</span> <span class="text-white">"AWS Automation Toolkit"</span></div>
+                        
+                        
+                        <div><span class="text-neon-cyan font-semibold">description:</span> <span class="text-white">"A comprehensive Python toolkit for automating AWS infrastructure management and cost optimization"</span></div>
+                        
+                        
+                        
+                        <div><span class="text-neon-cyan font-semibold">tags:</span> <span class="text-neon-purple">[python, aws, automation, boto3, cost-optimization]</span></div>
+                        
+                    </div>
+                </div>
+
+                
+                
+                
+                
+                
+                
+                <div class="mb-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white neon-glow mb-4 leading-tight">
+                        AWS Automation Toolkit
+                    </h1>
+                    
+                    <p class="text-lg text-gray-400 leading-relaxed">A comprehensive Python toolkit for automating AWS infrastructure management and cost optimization</p>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">content_viewer.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10">
+                
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-sm sm:text-base leading-relaxed text-gray-300 font-mono px-2 sm:px-4 lg:px-6">
+                        <h1 id="aws-automation-toolkit">AWS Automation Toolkit</h1>
+<p>A powerful Python-based toolkit designed to automate common AWS infrastructure management tasks and optimize cloud costs.</p>
+<h2 id="features">Features</h2>
+<h3 id="cost-optimization">Cost Optimization</h3>
+<ul>
+<li><strong>Unused Resource Detection</strong>: Automatically identifies and reports unused EC2 instances, EBS volumes, and Elastic IPs</li>
+<li><strong>Right-sizing Recommendations</strong>: Analyzes CloudWatch metrics to suggest optimal instance types</li>
+<li><strong>Scheduled Scaling</strong>: Implements time-based auto-scaling for development environments</li>
+</ul>
+<h3 id="security-automation">Security Automation</h3>
+<ul>
+<li><strong>Security Group Auditing</strong>: Scans for overly permissive security groups</li>
+<li><strong>IAM Policy Analysis</strong>: Identifies unused IAM policies and roles</li>
+<li><strong>Compliance Reporting</strong>: Generates compliance reports for various frameworks</li>
+</ul>
+<h3 id="infrastructure-management">Infrastructure Management</h3>
+<ul>
+<li><strong>Backup Automation</strong>: Automated EBS snapshot creation and lifecycle management</li>
+<li><strong>Resource Tagging</strong>: Bulk tagging operations with compliance enforcement</li>
+<li><strong>Multi-Account Management</strong>: Cross-account resource management and reporting</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">class</span> <span style="color:#f0883e;font-weight:bold">AWSAutomationToolkit</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">__init__</span>(self, profile<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">None</span>, region<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#39;us-west-2&#39;</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff7b72;font-weight:bold">.</span>session <span style="color:#ff7b72;font-weight:bold">=</span> boto3<span style="color:#ff7b72;font-weight:bold">.</span>Session(profile_name<span style="color:#ff7b72;font-weight:bold">=</span>profile)
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff7b72;font-weight:bold">.</span>region <span style="color:#ff7b72;font-weight:bold">=</span> region
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">optimize_costs</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;&#34;&#34;Run cost optimization analysis&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#39;unused_resources&#39;</span>: self<span style="color:#ff7b72;font-weight:bold">.</span>_find_unused_resources(),
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#39;rightsizing&#39;</span>: self<span style="color:#ff7b72;font-weight:bold">.</span>_analyze_rightsizing(),
+</span></span><span style="display:flex;"><span>            <span style="color:#a5d6ff">&#39;savings_potential&#39;</span>: self<span style="color:#ff7b72;font-weight:bold">.</span>_calculate_savings()
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="key-components">Key Components</h2>
+<ol>
+<li><strong>Cost Analyzer</strong>: Identifies cost-saving opportunities</li>
+<li><strong>Security Scanner</strong>: Automated security assessments</li>
+<li><strong>Resource Manager</strong>: Bulk operations on AWS resources</li>
+<li><strong>Report Generator</strong>: Comprehensive reporting system</li>
+</ol>
+<h2 id="usage-examples">Usage Examples</h2>
+<h3 id="cost-optimization-1">Cost Optimization</h3>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Find unused resources</span>
+</span></span><span style="display:flex;"><span>python aws_toolkit.py cost --unused-resources
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Generate rightsizing recommendations</span>
+</span></span><span style="display:flex;"><span>python aws_toolkit.py cost --rightsizing --instance-type t3.medium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="security-scanning">Security Scanning</h3>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Audit security groups</span>
+</span></span><span style="display:flex;"><span>python aws_toolkit.py security --audit-sg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Check IAM policies</span>
+</span></span><span style="display:flex;"><span>python aws_toolkit.py security --iam-analysis
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="installation">Installation</h2>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install aws-automation-toolkit
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="configuration">Configuration</h2>
+<p>The toolkit uses AWS profiles and supports multiple configuration methods:</p>
+<div class="highlight"><div style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#737679">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># config.yaml</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">aws</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">profile</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">default</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">region</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">us-west-2</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">cost_optimization</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">unused_threshold_days</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">30</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">rightsizing_cpu_threshold</span>:<span style="color:#6e7681"> </span><span style="color:#a5d6ff">10</span><span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681"></span><span style="color:#7ee787">security</span>:<span style="color:#6e7681">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e7681">  </span><span style="color:#7ee787">compliance_frameworks</span>:<span style="color:#6e7681"> </span>[<span style="color:#a5d6ff">&#34;CIS&#34;</span>,<span style="color:#6e7681"> </span><span style="color:#a5d6ff">&#34;SOC2&#34;</span>]<span style="color:#6e7681">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="results">Results</h2>
+<ul>
+<li><strong>Cost Savings</strong>: Achieved 35% cost reduction across managed environments</li>
+<li><strong>Security Improvements</strong>: Identified and remediated 150+ security issues</li>
+<li><strong>Time Savings</strong>: Reduced manual infrastructure tasks by 80%</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<ul>
+<li>Integration with Terraform for infrastructure provisioning</li>
+<li>Machine learning-based cost prediction</li>
+<li>Advanced compliance automation</li>
+<li>Multi-cloud support (Azure, GCP)</li>
+</ul>
+                    </div>
+                </div>
+                
+                
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="text-gray-500 text-sm font-mono mb-2">
+                        # End of file - 311 words, 2 min read
+                    </div>
+                    <div class="text-neon-green font-mono">
+                        <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/projects</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="terminal-window rounded-lg overflow-hidden animate-fadeIn">
+            
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">navigation.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/projects</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
+                </div>
+                
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 text-sm">
+                    
+                    <div class="space-y-3">
+                        
+                        <div class="text-gray-500 font-bold"># PREVIOUS PROJECTS</div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-green transition-colors">
+                            <div class="text-neon-cyan mb-2">← CyberDrill Lab</div>
+                            <a href="http://localhost:1313/projects/cyberdrill-lab/" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd /projects/cyberdrill-lab/
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="space-y-3">
+                        <div class="text-gray-500 font-bold"># BACK TO PROJECTS</div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-cyan transition-colors">
+                            <div class="text-neon-cyan mb-2">↑ All Projects</div>
+                            <a href="/projects/" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd ../projects/
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="space-y-3">
+                        
+                        <div class="text-gray-500 font-bold"># NEXT PROJECTS</div>
+                        <div class="bg-gray-900/30 p-4 rounded border border-gray-800">
+                            <div class="text-gray-600">No next projects →</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+
+<style>
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #39ff14;
+    text-shadow: 0 0 10px currentColor;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose p {
+    color: #e5e5e5;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.prose code {
+    background-color: #1a1a1a;
+    color: #00ffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #333;
+    font-size: 0.9em;
+}
+
+.prose pre {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #39ff14;
+}
+
+.prose ul, .prose ol {
+    color: #e5e5e5;
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose blockquote {
+    border-left: 4px solid #39ff14;
+    background-color: #1a1a1a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #e5e5e5;
+    font-style: italic;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.prose th, .prose td {
+    border: 1px solid #333;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background-color: #0a0a0a;
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose td {
+    color: #e5e5e5;
+}
+
+.prose a {
+    color: #00ffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.prose a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 5px currentColor;
+}
+
+.prose strong {
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose em {
+    color: #bf00ff;
+    font-style: italic;
+}
+</style>
+
+
+    </main>
+    
+    
+<footer class="border-t border-neon-green/20 py-6 px-6">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <span class="text-neon-green">[ uptime: 1337 days ]</span>
+                <span class="text-neon-cyan">[ powered by Hugo + Tailwind ]</span>
+            </div>
+            <div class="text-gray-400">
+                © 2025 Seckin. All systems operational.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fadeIn');
+            }
+        });
+    }, observerOptions);
+
+    
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+    
+</body>
+</html>

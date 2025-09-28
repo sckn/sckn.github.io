@@ -1,0 +1,45 @@
+<!-- Header/Navbar -->
+<header class="fixed top-0 w-full bg-terminal-bg/90 backdrop-blur-sm border-b border-neon-green/20 z-50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-2xl font-bold neon-glow text-neon-green">
+                <a href="{{ .Site.BaseURL }}">
+                    <span class="text-neon-cyan">[</span>{{ .Site.Params.author | default .Site.Title }}<span class="text-neon-cyan">]</span>
+                </a>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="{{ .Site.BaseURL }}" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+                <a href="{{ .Site.BaseURL }}#about" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+                <a href="{{ .Site.BaseURL }}projects/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+                <a href="{{ .Site.BaseURL }}blog/" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+                <a href="{{ .Site.BaseURL }}#contact" class="neon-glow-hover text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button class="text-neon-green neon-glow-hover" onclick="toggleMobileMenu()">
+                    <span class="text-xl">[≡]</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="{{ .Site.BaseURL }}" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Home</a>
+            <a href="{{ .Site.BaseURL }}#about" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">About</a>
+            <a href="{{ .Site.BaseURL }}projects/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Projects</a>
+            <a href="{{ .Site.BaseURL }}blog/" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Blog</a>
+            <a href="{{ .Site.BaseURL }}#contact" class="block py-2 text-neon-green hover:text-neon-cyan transition-colors duration-300">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+</script>

@@ -1,0 +1,337 @@
+{{ define "main" }}
+
+<!-- Main Article Container -->
+<article class="py-8 px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 md:pt-28">
+    <div class="container mx-auto max-w-6xl">
+        
+        <!-- Terminal Breadcrumb Navigation -->
+        <div class="terminal-window rounded-lg mb-4 overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-xs font-mono">navigation.sh</div>
+                <div class="w-12"></div>
+            </div>
+            
+            <!-- Breadcrumb Content -->
+            <div class="bg-black p-3 sm:p-4 font-mono">
+                <div class="flex items-center text-sm">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~</span><span class="text-white">$ </span><span class="text-neon-amber">pwd</span>
+                </div>
+                <div class="mt-2 flex items-center text-sm">
+                    <span class="text-gray-500">/home/</span>
+                    <a href="/" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow">portfolio</a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <a href="/{{ .Section }}/" class="text-neon-cyan hover:text-neon-green transition-colors duration-200 hover:glow">{{ .Section }}</a>
+                    <span class="text-gray-500 mx-1">/</span>
+                    <span class="text-neon-amber">{{ .File.BaseFileName }}</span>
+                    {{ if eq .Section "blog" }}
+                    <span class="text-gray-500">.log</span>
+                    {{ else }}
+                    <span class="text-gray-500">.md</span>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Terminal Header Window -->
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">
+                    {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}_{{ .File.BaseFileName }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}
+                </div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Terminal Header Content -->
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                <!-- Command Prompt -->
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">cat {{ if eq .Section "blog" }}{{ .Date.Format "2006-01-02" }}.log{{ else }}{{ .File.BaseFileName }}.md{{ end }}</span>
+                </div>
+                
+                <!-- File Header with Metadata -->
+                <div class="border-l-4 border-neon-green pl-6 mb-8 bg-gray-900/30 p-4 rounded-r">
+                    <div class="text-gray-500 text-sm mb-3 font-bold">
+                        {{ if eq .Section "blog" }}
+                        # BLOG POST METADATA
+                        {{ else }}
+                        # PROJECT METADATA  
+                        {{ end }}
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <div><span class="text-neon-cyan font-semibold">title:</span> <span class="text-white">"{{ .Title }}"</span></div>
+                        {{ if eq .Section "blog" }}
+                        <div><span class="text-neon-cyan font-semibold">date:</span> <span class="text-white">{{ .Date.Format "2006-01-02 15:04:05" }}</span></div>
+                        <div><span class="text-neon-cyan font-semibold">reading_time:</span> <span class="text-neon-amber">{{ .ReadingTime }} minutes</span></div>
+                        {{ end }}
+                        {{ if .Params.description }}
+                        <div><span class="text-neon-cyan font-semibold">description:</span> <span class="text-white">"{{ .Params.description }}"</span></div>
+                        {{ end }}
+                        {{ if .Params.author }}
+                        <div><span class="text-neon-cyan font-semibold">author:</span> <span class="text-white">"{{ .Params.author }}"</span></div>
+                        {{ end }}
+                        {{ if .Params.tags }}
+                        <div><span class="text-neon-cyan font-semibold">tags:</span> <span class="text-neon-purple">[{{ delimit .Params.tags ", " }}]</span></div>
+                        {{ end }}
+                    </div>
+                </div>
+
+                <!-- Project Links (for projects only) -->
+                {{ if eq .Section "projects" }}
+                {{ if or .Params.github_url .Params.demo_url .Params.docs_url }}
+                <div class="border-l-4 border-neon-cyan pl-6 mb-8 bg-gray-900/30 p-4 rounded-r">
+                    <div class="text-gray-500 text-sm mb-3 font-bold"># PROJECT LINKS</div>
+                    <div class="space-y-2 text-sm">
+                        {{ if .Params.github_url }}
+                        <div><span class="text-neon-cyan font-semibold">github:</span> <a href="{{ .Params.github_url }}" class="text-neon-green hover:text-neon-amber transition-colors underline" target="_blank">"{{ .Params.github_url }}"</a></div>
+                        {{ end }}
+                        {{ if .Params.demo_url }}
+                        <div><span class="text-neon-cyan font-semibold">demo:</span> <a href="{{ .Params.demo_url }}" class="text-neon-green hover:text-neon-amber transition-colors underline" target="_blank">"{{ .Params.demo_url }}"</a></div>
+                        {{ end }}
+                        {{ if .Params.docs_url }}
+                        <div><span class="text-neon-cyan font-semibold">docs:</span> <a href="{{ .Params.docs_url }}" class="text-neon-green hover:text-neon-amber transition-colors underline" target="_blank">"{{ .Params.docs_url }}"</a></div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                {{ end }}
+                
+                <!-- Title Display -->
+                <div class="mb-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white neon-glow mb-4 leading-tight">
+                        {{ .Title }}
+                    </h1>
+                    {{ if .Params.description }}
+                    <p class="text-lg text-gray-400 leading-relaxed">{{ .Params.description }}</p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Terminal Window -->
+        <div class="terminal-window rounded-lg mb-8 overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">content_viewer.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Terminal Content -->
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10">
+                <!-- Content Display -->
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <div class="text-sm sm:text-base leading-relaxed text-gray-300 font-mono px-2 sm:px-4 lg:px-6">
+                        {{ .Content }}
+                    </div>
+                </div>
+                
+                <!-- End of File Indicator -->
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="text-gray-500 text-sm font-mono mb-2">
+                        # End of file - {{ .WordCount }} words, {{ .ReadingTime }} min read
+                    </div>
+                    <div class="text-neon-green font-mono">
+                        <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="animate-blink">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Terminal Window -->
+        <div class="terminal-window rounded-lg overflow-hidden animate-fadeIn">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-gray-400 text-sm font-mono">navigation.sh</div>
+                <div class="w-16"></div>
+            </div>
+            
+            <!-- Navigation Content -->
+            <div class="bg-black p-4 sm:p-6 lg:p-8 xl:p-10 font-mono">
+                <!-- Command Prompt -->
+                <div class="mb-6">
+                    <span class="text-neon-green">user@portfolio</span><span class="text-white">:</span><span class="text-neon-cyan">~/{{ .Section }}</span><span class="text-white">$ </span><span class="text-neon-amber">ls -la ../</span>
+                </div>
+                
+                <!-- Navigation Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 text-sm">
+                    <!-- Previous Post -->
+                    <div class="space-y-3">
+                        {{ with .PrevInSection }}
+                        <div class="text-gray-500 font-bold"># PREVIOUS {{ upper $.Section }}</div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-green transition-colors">
+                            <div class="text-neon-cyan mb-2">← {{ .Title }}</div>
+                            <a href="{{ .Permalink }}" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd {{ .RelPermalink }}
+                            </a>
+                        </div>
+                        {{ else }}
+                        <div class="text-gray-500 font-bold"># PREVIOUS {{ upper .Section }}</div>
+                        <div class="bg-gray-900/30 p-4 rounded border border-gray-800">
+                            <div class="text-gray-600">← No previous {{ .Section }}</div>
+                        </div>
+                        {{ end }}
+                    </div>
+                    
+                    <!-- Back to Section -->
+                    <div class="space-y-3">
+                        <div class="text-gray-500 font-bold"># BACK TO {{ upper .Section }}</div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-cyan transition-colors">
+                            <div class="text-neon-cyan mb-2">↑ All {{ title .Section }}</div>
+                            <a href="/{{ .Section }}/" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd ../{{ .Section }}/
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Post -->
+                    <div class="space-y-3">
+                        {{ with .NextInSection }}
+                        <div class="text-gray-500 font-bold"># NEXT {{ upper $.Section }}</div>
+                        <div class="bg-gray-900/50 p-4 rounded border border-gray-700 hover:border-neon-green transition-colors">
+                            <div class="text-neon-cyan mb-2">{{ .Title }} →</div>
+                            <a href="{{ .Permalink }}" class="text-neon-green hover:text-neon-amber transition-colors text-xs">
+                                cd {{ .RelPermalink }}
+                            </a>
+                        </div>
+                        {{ else }}
+                        <div class="text-gray-500 font-bold"># NEXT {{ upper .Section }}</div>
+                        <div class="bg-gray-900/30 p-4 rounded border border-gray-800">
+                            <div class="text-gray-600">No next {{ .Section }} →</div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+<!-- Custom CSS for Enhanced Content Styling -->
+<style>
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #39ff14;
+    text-shadow: 0 0 10px currentColor;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose p {
+    color: #e5e5e5;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.prose code {
+    background-color: #1a1a1a;
+    color: #00ffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #333;
+    font-size: 0.9em;
+}
+
+.prose pre {
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #39ff14;
+}
+
+.prose ul, .prose ol {
+    color: #e5e5e5;
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose blockquote {
+    border-left: 4px solid #39ff14;
+    background-color: #1a1a1a;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    color: #e5e5e5;
+    font-style: italic;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.prose th, .prose td {
+    border: 1px solid #333;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background-color: #0a0a0a;
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose td {
+    color: #e5e5e5;
+}
+
+.prose a {
+    color: #00ffff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.prose a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 5px currentColor;
+}
+
+.prose strong {
+    color: #39ff14;
+    font-weight: bold;
+}
+
+.prose em {
+    color: #bf00ff;
+    font-style: italic;
+}
+</style>
+
+{{ end }}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cost-Optimization on sckn.dev - DevOps Engineer</title>
+    <link>http://localhost:1313/tags/cost-optimization/</link>
+    <description>Recent content in Cost-Optimization on sckn.dev - DevOps Engineer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/tags/cost-optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Automation Toolkit</title>
+      <link>http://localhost:1313/projects/aws-automation-toolkit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/aws-automation-toolkit/</guid>
+      <description>&lt;h1 id=&#34;aws-automation-toolkit&#34;&gt;AWS Automation Toolkit&lt;/h1&gt;&#xA;&lt;p&gt;A powerful Python-based toolkit designed to automate common AWS infrastructure management tasks and optimize cloud costs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
